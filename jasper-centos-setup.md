@@ -41,5 +41,7 @@ change hostname to localhost
 	hostname localhost
 	./js-install-ce.sh
 	cd /usr/local/tomcat7/bin
+	./shutdown.sh
+	./startup.sh
 
-shutdown and start
+Now http://ip.add.re.ss:8080/jasperserver should load it
