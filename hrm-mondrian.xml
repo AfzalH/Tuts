@@ -1,0 +1,42 @@
+<Schema name="HRM" description="Mondrian Schema for HRM">
+  <Cube name="SanctionedPostCube" visible="true" description="Cube for sanctioned post" cache="true" enabled="true">
+    <Table name="rep1_sanctionedposts_fact" alias="sanctioned_posts">
+    </Table>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Facility">
+      <Hierarchy name="Area" visible="true" hasAll="true" allMemberName="All Area" defaultMember="All Area">
+        <Level name="Division" visible="true" column="division_id" nameColumn="division_name" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="Division">
+        </Level>
+        <Level name="District" visible="true" column="district_id" nameColumn="district_name" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="District">
+        </Level>
+        <Level name="Upozilla" visible="true" column="upazila_id" nameColumn="upazila_name" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="Upozilla">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Designation">
+      <Hierarchy name="Designation" visible="true" hasAll="true" allMemberName="All Designation" defaultMember="All Designation">
+        <Level name="Designation Class" visible="true" column="designationclass_id" nameColumn="designationclass_name" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="Class">
+        </Level>
+        <Level name="Designation" visible="true" column="designation_id" nameColumn="designations_name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Designation">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="TimeDimension" visible="true" highCardinality="false" name="Time">
+      <Hierarchy visible="true" hasAll="true" allMemberName="All Year" defaultMember="All Year">
+        <Level name="Year" visible="true" column="s_year" type="String" uniqueMembers="true" levelType="TimeYears" hideMemberIf="Never" caption="Year">
+        </Level>
+        <Level name="Month" visible="true" column="s_month" nameColumn="s_monthname" type="String" uniqueMembers="true" levelType="TimeMonths" hideMemberIf="Never" caption="Month">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="Sanctioned Posts" column="id" aggregator="count" visible="true">
+    </Measure>
+    <Measure name="Filled" column="Filled" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Vacant" column="Vacant" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Male" column="Male" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Female" column="Female" aggregator="sum" visible="true">
+    </Measure>
+  </Cube>
+</Schema>
