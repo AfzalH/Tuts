@@ -69,7 +69,7 @@ apt-get install mongodb-server
 # install node
 ```
 apt-get install npm
-npm install n
+npm install --global --save n
 n 4.4.5
 ```
 
