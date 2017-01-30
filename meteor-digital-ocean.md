@@ -139,8 +139,14 @@ root@todos:/etc/nginx/sites-available#
 # build the app locally (different terminal - localhost)
 ```
 cd /app/dir
-meteor build .
+meteor build . --architecture os.linux.x86_64
 scp scp filename.tar.gz root@todos.net:/root/
+```
+# on ubuntu 16.04
+```
+apt-get install upstart-sysv
+update-initramfs -u
+reboot
 ```
 # on server again move and extract the file and npm install
 ```
