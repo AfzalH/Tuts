@@ -24,6 +24,9 @@ cd /etc/nginx/common
 wget https://raw.githubusercontent.com/VirtuBox/ubuntu-nginx-web-server/master/common.zip
 apt install unzip -y
 unzip common.zip
+```
+
+```bash
 cp -f /etc/php/7.0/fpm/pool.d/www.conf /etc/php/7.2/fpm/pool.d/www.conf
 ```
 
