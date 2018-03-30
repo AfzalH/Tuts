@@ -1,6 +1,6 @@
 SSH to root@ip and install ee
 ```bash
-wget -qO ee srizon.com/ee && sudo bash ee
+wget -qO ee rt.cx/ee && sudo bash ee
 ```
 
 Create site
