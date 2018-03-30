@@ -7,6 +7,10 @@ Create site
 ```bash
 ee site create test.com --mysql --php7
 ```
+Refresh DNS on Mac (another terminal)
+```bash
+sudo killall -HUP mDNSResponder 
+```
 
 Get packages and setup things
 
