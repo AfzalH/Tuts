@@ -31,7 +31,15 @@ Edit port from 9070 to 9080
 nano /etc/php/7.2/fpm/pool.d/www.conf
 nano /etc/nginx/conf.d/upstream.conf
 ```
-
+Configure PHP
+```bash
+sed -i 's/upload_max_filesize = 2M/upload_max_filesize = 20M/g' /etc/php/7.2/fpm/php.ini
+sed -i 's/max_execution_time = 30/max_execution_time = 300/g' /etc/php/7.2/fpm/php.ini
+sed -i 's/max_input_time = 60/max_input_time = 300/g' /etc/php/7.2/fpm/php.ini
+sed -i 's/post_max_size = 8M/post_max_size = 28M/g' /etc/php/7.2/fpm/php.ini
+sed -i 's/memory_limit = 128M/memory_limit = 512M/g' /etc/php/7.2/fpm/php.ini
+#
+```
 Restart
 ```bash
 service php7.2-fpm restart
