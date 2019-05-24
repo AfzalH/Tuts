@@ -35,22 +35,14 @@ ssserver -c /etc/shadowsocks.json -d start
 auto run on startup
 
 ```bash
-nano /etc/rc.local
+printf '%s\n' '#!/bin/bash' '/usr/bin/python /usr/local/bin/ssserver -c /etc/shadowsocks.json -d start' 'exit 0' | sudo tee -a /etc/rc.local
+sudo chmod +x /etc/rc.local
+reboot
 ```
-
-Write the following and exit
-
-```
-/usr/bin/python /usr/local/bin/ssserver -c /etc/shadowsocks.json -d start
-exit 0
-```
-
-Run the following command to make it executable
-
-```
-chmod +x /etc/rc.local
-```
-
-## Mac client is within this directory
 
 slightly modified and brief version of this article https://mighil.com/how-to-setup-shadowsocks-server-on-digitalocean-vps/
+
+## Mac client is within this directory
+1. Install
+2. Edit server preference to match the ip/server_port/password/algorithm above. Leave the plugin related things empty
+3. Start stop shadowsox when needed
